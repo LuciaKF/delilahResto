@@ -1,0 +1,270 @@
+{
+	"variables": [],
+	"info": {
+		"name": "delilah resto",
+		"_postman_id": "7ee3fdd1-a4aa-25e2-047b-f245aa3f029b",
+		"description": "proyecto 3 - curso Desarrollo Web Full Stack ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/products",
+			"request": {
+				"url": "localhost:3000/products",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZmVjaGEiOjE1ODgxMjA5NjkyMzgsImlhdCI6MTU4ODEyMDk2OX0.4HQai4Czq4YeSScBjc2UbLxFd_650d-v5vh0uLrid-g",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Hamburguesa clásica\",\n    \"description\": \"HamClas\",\n    \"ingredients\": \"Medallón de carne y queso cheddar\",\n    \"price\": 375,\n    \"img\": \"https://image.freepik.com/foto-gratis/sabrosa-hamburguesa-clasica-papas_23-2148290583.jpg\"\n}"
+				},
+				"description": "Trae todos los productos listados.\n\nheaders: \ncontent-type: application/json,\nAuthorization: token;"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/register",
+			"request": {
+				"url": "localhost:3000/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"user\",\r\n    \"name\": \"Usuario\",\r\n    \"lastName\": \"Prueba\",\r\n    \"email\": \"test@test.com\",\r\n    \"phone\": 3415123456,\r\n    \"address\": \"Av. SiempreViva 123\",\r\n    \"password\": \"test\"\r\n}"
+				},
+				"description": "registrar usuario nuevo.\n\nheaders: \ncontent-type: application/json;\n\nbody: {\n    \"userName\": \"user\",\n    \"name\": \"User\",\n    \"lastName\": \"Test\",\n    \"email\": \"test@test.com\",\n    \"phone\": 3415123456,\n    \"adress\": \"Av. Siempreviva 123\",\n    \"password\": \"test\"\n}\n\n//los valores pueden modificarse"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/login",
+			"request": {
+				"url": "localhost:3000/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Token",
+						"value": "Bearer token",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"test@test.com\",\n\t\"password\": \"test\"\n}"
+				},
+				"description": "login usuario.\n\nheaders: \ncontent-type: application/json;\n\nbody: {\n\n    \"name\": \"test@test.com\", (email o username)\n    \"password\": \"test\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/products",
+			"request": {
+				"url": "localhost:3000/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZmVjaGEiOjE1ODgyMDQzOTE2NjEsImlhdCI6MTU4ODIwNDM5MX0.4kbr5EhJlwu69pwLtm6WuaMWVBZD5Q4mlGCqxlqs6Sc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"prueba\",\n    \"description\": \"HamClas\",\n    \"ingredients\": \"Medallón de carne y queso cheddar\",\n    \"price\": 350,\n    \"img\": \"https://image.freepik.com/foto-gratis/sabrosa-hamburguesa-clasica-papas_23-2148290583.jpg\"\n}\n"
+				},
+				"description": "crear producto (adm);\n\nheaders: \ncontent-type: application/json,\nAuthorization: token;\n\nbody: {\n\n    \"name\": \"Hamburguesa clásica\",\n    \"description\": \"HamClas\",\n    \"ingredients\": \"Medallón de carne y queso cheddar\",\n    \"price\": 350,\n    \"img\": \"https://image.freepik.com/foto-gratis/sabrosa-hamburguesa-clasica-papas_23-2148290583.jpg\"\n}\n"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/products/1",
+			"request": {
+				"url": "localhost:3000/products/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Acceder a un producto por id.\n\nheaders: \nContent-Type: application/json,\nAuthorization: Bearer token;\n\t\t\n"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/products/1",
+			"request": {
+				"url": "localhost:3000/products/9",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZmVjaGEiOjE1ODgyMDQzOTE2NjEsImlhdCI6MTU4ODIwNDM5MX0.4kbr5EhJlwu69pwLtm6WuaMWVBZD5Q4mlGCqxlqs6Sc",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Hamburguesa clásica\",\n    \"description\": \"HamClas\",\n    \"ingredients\": \"Medallón de carne y queso cheddar\",\n    \"price\": 375,\n    \"img\": \"https://image.freepik.com/foto-gratis/sabrosa-hamburguesa-clasica-papas_23-2148290583.jpg\"\n}"
+				},
+				"description": "Editar producto (adm).\n\nheaders: \nContent-Type: application/json,\nAuthorization: token;\n\nbody: {\n\n    \"name\": \"Hamburguesa clásica\",\n    \"description\": \"HamClas\",\n    \"ingredients\": \"Medallón de carne y queso cheddar\",\n    \"price\": 350,\n    \"img\": \"https://image.freepik.com/foto-gratis/sabrosa-hamburguesa-clasica-papas_23-2148290583.jpg\"\n\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/products/1",
+			"request": {
+				"url": "localhost:3000/products/9",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZmVjaGEiOjE1ODgyMDQzOTE2NjEsImlhdCI6MTU4ODIwNDM5MX0.4kbr5EhJlwu69pwLtm6WuaMWVBZD5Q4mlGCqxlqs6Sc",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Eliminar producto (adm).\n\nheaders: \nContent Type: application/json,\nAuthorization: Bearer token;\n\t\t"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/orders",
+			"request": {
+				"url": "localhost:3000/orders",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZmVjaGEiOjE1ODgyMDQzOTE2NjEsImlhdCI6MTU4ODIwNDM5MX0.4kbr5EhJlwu69pwLtm6WuaMWVBZD5Q4mlGCqxlqs6Sc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"orderDetail\": [{\"id\": 2, \"quant\": 3}],\n\t\"payment\": 0,\n\t\"total\": 750\n}"
+				},
+				"description": "crear pedido\n\nheaders: \nContent-Type: application/json,\nAuthorization: Bearer token;\n\t\t\nbody: {\n\t\"orderDetail\": [{\"id\": 3, \"quant\": 1}],\n\t\"payment\": 0,\n\t\"total\": 400.50\n}\n\n\n// orderDetail es un array con la data de los productos del pedido (el id y la cantidad que se pide). \nEL ID DEL PRODUCTO DEBE EXISTIR"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/orders",
+			"request": {
+				"url": "localhost:3000/orders",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZmVjaGEiOjE1ODgyMDQzOTE2NjEsImlhdCI6MTU4ODIwNDM5MX0.4kbr5EhJlwu69pwLtm6WuaMWVBZD5Q4mlGCqxlqs6Sc",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Obtener lista de pedidos (adm)\n\nheaders: \nContent-Type: application/json,\nAuthorization: Bearer Token;\n\t\t\n\t"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/orders/4",
+			"request": {
+				"url": "localhost:3000/orders/4",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZmVjaGEiOjE1ODgyMDQzOTE2NjEsImlhdCI6MTU4ODIwNDM5MX0.4kbr5EhJlwu69pwLtm6WuaMWVBZD5Q4mlGCqxlqs6Sc",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Obtener un pedido determinado (adm)\n\nheaders: \nContent-Type: application/json,\nAuthorization: Bearer token;\n\t\t\n\t"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/orders/4",
+			"request": {
+				"url": "localhost:3000/orders/4",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZmVjaGEiOjE1ODgwMzAxNTE1NjIsImlhdCI6MTU4ODAzMDE1MX0.5SzsyzdLpte1bTPFKkwoDWRd_gdjyoIPD0XrQaro51c",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"stateOrder\": \"nuevo\"\n}"
+				},
+				"description": "Actualizar estado del pedido\n\nheaders: \nContent-Type: applicatiobn/json,\nAuthorization: Bearer token;\n\t\t\nbody: {\n\t\"orderState\": \"cancelado\"\n}"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,358 @@
+openapi: 3.0.1
+info:
+  title: Delilah Resto
+  description: Este es un proyecto del curso de Desarrollo Web Full Stack de Acámica.
+  version: 1.0.0
+servers:
+  - url: 'http://localhost/'
+tags:
+  - name: Usuarios
+  - name: Productos
+  - name: Pedidos
+paths:
+  /register:
+    post:
+      tags:
+        - Usuarios
+      summary: Registrarse como usuario
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/registro'
+  /login:
+    post:
+      tags:
+        - Usuarios
+      summary: Iniciar sesión
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/login'
+  /products:
+    get:
+      tags:
+        - Productos
+      summary: Traer todos los productos
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+        - name: '/:id'
+          in: path
+          description: requerido si se busca un solo producto
+          schema:
+            type: integer
+            example: 1
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/getProductos'
+    post:
+      tags:
+        - Productos
+      summary: Crear producto
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/postProductos'
+    put:
+      tags:
+        - Productos
+      summary: Editar producto
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+        - name: '/:id'
+          in: path
+          description: requerido si se busca un solo producto
+          schema:
+            type: integer
+            example: 1
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/postProductos'
+    delete:
+      tags:
+        - Productos
+      summary: Eliminar producto
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+        - name: '/:id'
+          in: path
+          description: requerido si se busca un solo producto
+          schema:
+            type: integer
+            example: 1
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/getProductos'
+  /orders:
+    get:
+      tags:
+        - Pedidos
+      summary: Traer todos los pedidos
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+        - name: '/:id'
+          in: path
+          description: requerido si se busca un solo pedido
+          schema:
+            type: integer
+            example: 1
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pedido'
+    post:
+      tags:
+        - Pedidos
+      summary: Crear un pedido
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example:  "Your order has been successfully sent"
+                  rta: 
+                    type: integer
+                    description: id del pedido creado
+                    example: 6
+    put:
+      tags:
+        - Pedidos
+      summary: Actualizar pedido
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+        - name: '/:id'
+          in: path
+          description: requerido si se busca un solo pedido
+          schema:
+            type: integer
+            example: 1
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: "The order has been updated"
+                  rta:
+                    type: number
+                    description: id pedido actualizado
+                    example: 4
+components:
+  schemas:
+    login:
+      type: object
+      properties:
+        msg:
+          type: string
+          description: Breve mensaje sobre la consulta
+          example: Welcome to Delilah Resto
+        token:
+          type: string
+          description: token para utilizar el resto de las apis
+          example: >-
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+    registro:
+      type: object
+      properties:
+        msg:
+          type: string
+          description: Breve mensaje sobre la consulta
+          example: You are registered
+        token:
+          type: string
+          description: token para utilizar el resto de las apis
+          example: >-
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+    getProductos:
+      type: object
+      properties:
+        msg:
+          type: string
+          description: Breve mensaje sobre la consulta
+          example: Delilah Resto Products
+        rta:
+          type: array
+          items:
+            $ref: '#/components/schemas/Producto'
+    postProductos:
+      type: object
+      properties:
+        msg:
+          type: string
+          description: Breve mensaje sobre la consulta
+          example:  "The product has been successfully created"
+        rta:
+          type: array
+          items:
+            type: object
+            properties: 
+              name:
+                type: string
+                example: Hamburguesa Clásica
+              description:
+                type: string
+                example: HamClas
+              ingredients:
+                type: string
+                example: Medallón de carne y queso cheddar
+              price:
+                type: number
+                example: 350
+              img:
+                type: string
+                example: >-
+                  https://image.freepik.com/foto-gratis/sabrosa-hamburguesa-clasica-papas_23-2148290583.jpg
+    Producto:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Hamburguesa Clásica
+        description:
+          type: string
+          example: HamClas
+        ingredients:
+          type: string
+          example: Medallón de carne y queso cheddar
+        price:
+          type: number
+          example: 350
+        img:
+          type: string
+          example: >-
+            https://image.freepik.com/foto-gratis/sabrosa-hamburguesa-clasica-papas_23-2148290583.jpg
+    Pedido:
+      type: object
+      properties:
+        state:
+          type: string
+          example: "nuevo"
+        time:
+          type: string
+          example: "2020-04-27T19:37:39.000Z"
+        orderNumber:
+          type: integer
+          example: 4
+        description:
+          type: string
+          example: "1XHamDel"
+        payment: 
+          type: string
+          example: "efectivo"
+        total:
+          type: number
+          example: 400.50
+        user: 
+          type: string
+          example: "Juan García"
+        address: 
+          type: string
+          example: "Av. Siempreviva 123"
+      
