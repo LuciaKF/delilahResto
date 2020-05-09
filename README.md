@@ -33,7 +33,7 @@ npm install mysql2
 
 ###Configuración:
 _Se debe configurar la conexión a la base de datos._
-Se debe reemplazar el usuario y contraseña de la url de Sequelize con los creados en el paso anterior, en los archivos `server.js`, `products.js` (server/routes/products.js), `orders.js` (server/routes/orders.js) y `middlewares.js` (server/middlewares/middlewares.js).
+Se debe reemplazar el usuario, contraseña, url y puerto de Sequelize con los creados en el paso anterior, en el archivo `config.js`(server/config.js).
 
 var sql = new Sequelize('mysql://USUARIO:CONTRASEÑA@localhost:3306/delilah');
 
