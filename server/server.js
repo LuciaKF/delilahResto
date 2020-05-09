@@ -3,8 +3,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
+const db = require('./config.js');
 const Sequelize = require('sequelize');
-const sql = new Sequelize('mysql://user:Acamica2019@localhost:3306/delilah');
+const sql = new Sequelize('mysql://' + db.user + ':' + db.password + '@' + db.url + ':' + db.port + '/delilah');
+const middlewares = require('./middlewares/middlewares.js');
 
 const products = require('./routes/products.js');
 const orders = require('./routes/orders.js');
@@ -64,6 +66,32 @@ app.post('/login', (req, res) => {
     } else {
         res.status(404).json({ error: 'Invalid data' })
     }
+})
+
+app.get('/users', middlewares.verifyToken, middlewares.verifyAdm, (req, res) => {
+
+    sql.query('SELECT * FROM users', { type: sql.QueryTypes.SELECT }).then((users) => {
+        if (users.length > 0) {
+            res.status(200).json({ msg: 'Delilah Resto users', rta: users })
+        } else {
+            res.status(200).json({ msg: 'There are no users registered' })
+        }
+    })
+
+})
+
+app.get('/users/:id', middlewares.verifyToken, middlewares.verifyAdm, (req, res) => {
+
+    let idUser = req.params.id;
+
+    sql.query('SELECT * FROM users WHERE id = ?', { replacements: [idUser], type: sql.QueryTypes.SELECT }).then((users) => {
+        if (users.length > 0) {
+            res.status(200).json({ msg: 'Delilah Resto user', rta: users })
+        } else {
+            res.status(200).json({ msg: 'There are no users registered with that identifier' })
+        }
+    })
+
 })
 
 app.listen(3000, function() {

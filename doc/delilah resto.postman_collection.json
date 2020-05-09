@@ -72,7 +72,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\" : \"test@test.com\",\n\t\"password\": \"test\"\n}"
+					"raw": "{\n\t\"name\" : \"admin\",\n\t\"password\": \"delilah\"\n}"
 				},
 				"description": "login usuario.\n\nheaders: \ncontent-type: application/json;\n\nbody: {\n\n    \"name\": \"test@test.com\", (email o username)\n    \"password\": \"test\"\n}"
 			},
@@ -254,15 +254,59 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZmVjaGEiOjE1ODgwMzAxNTE1NjIsImlhdCI6MTU4ODAzMDE1MX0.5SzsyzdLpte1bTPFKkwoDWRd_gdjyoIPD0XrQaro51c",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZmVjaGEiOjE1ODgyMDc3MTQ3ODIsImlhdCI6MTU4ODIwNzcxNH0.0NwcUn8rwddKonqjVLX-073NJqM4OQ1JDmB_ashIYBM",
 						"description": ""
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"stateOrder\": \"nuevo\"\n}"
+					"raw": "{\n\t\"orderState\": \"en camino\"\n}"
 				},
 				"description": "Actualizar estado del pedido\n\nheaders: \nContent-Type: applicatiobn/json,\nAuthorization: Bearer token;\n\t\t\nbody: {\n\t\"orderState\": \"cancelado\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users/1",
+			"request": {
+				"url": "localhost:3000/users/4",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZmVjaGEiOjE1ODkwNTc4ODAzNzgsImlhdCI6MTU4OTA1Nzg4MH0.b46RWpTeQfuv4TViNJkmvnycsrwMij3dn7qqkHmqY5o",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Buscar datos de un usuario determinado (adm).\n\nheaders:\nContent-Type: application/json;\nAuthorization: Bearer token;\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users",
+			"request": {
+				"url": "localhost:3000/users",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZmVjaGEiOjE1ODkwNTc4ODAzNzgsImlhdCI6MTU4OTA1Nzg4MH0.b46RWpTeQfuv4TViNJkmvnycsrwMij3dn7qqkHmqY5o",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Listar usuarios (adm)\n\nheaders:\nContent-Type: application/json;\nAuthorization: Bearer token;"
 			},
 			"response": []
 		}

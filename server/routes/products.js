@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const db = require('../config.js');
 const Sequelize = require('sequelize');
-const sql = new Sequelize('mysql://user:Acamica2019@localhost:3306/delilah');
+const sql = new Sequelize('mysql://' + db.user + ':' + db.password + '@' + db.url + ':' + db.port + '/delilah');
 const middlewares = require('../middlewares/middlewares.js');
 const router = express.Router();
 
